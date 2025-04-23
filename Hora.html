@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora</title>
+</head>
+<body>
+    <p id="hora"></p>
+
+    <script>
+        function Hora(){
+            let horas = new Date();
+            let seg = String(horas.getSeconds()).padStart(2,'0');
+            let min = String(horas.getMinutes()).padStart(2,'0');
+            let hora = String(horas.getHours());
+            document.getElementById("hora").innerHTML = `Son las ${hora}:${min}:${seg}`;
+        }
+        setInterval(Hora, 1000);
+
+        
+        
+    </script>
+</body>
+</html>

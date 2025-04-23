@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*EJERCICIO 1
+        let numero1 = parseInt(prompt("Introduce el primer número:"))
+        let numero2 = parseInt(prompt("Introduce el segundo número:"))
+        let suma = numero1 + numero2
+        alert(`El resultado de la suma es ${suma}`)*/
+        /*EJERCICIO 2
+        let randomNumber=(Math.trunc((Math.random()*10) + 1))
+        alert(randomNumber)
+        let adivina = parseInt(prompt("Introduce un número para adivinar el número aleatorio (1 - 10):"))
+            while(randomNumber != adivina){
+                alert("No has acertado el número.")
+                adivina = parseInt(prompt("Introduce un número para adivinar el número aleatorio (1 - 10):"))
+            }
+            alert("Enhorabuena has acertado el número.")*/
+        /*Ejercicio 3
+        let edad = parseInt(prompt("¿Cuántos años tienes?"));
+        if(edad >= 18){
+            alert("Eres mayor de edad");
+        }else {
+            alert("Eres menor de edad")
+        }*/
+        /*Ejercicio 4
+        function Sumaruno(){
+            document.getElementById("numero").textContent++;
+        }*/
+        /*Ejercicio 5
+        function Sumar() {
+            let numero1 = parseFloat(document.getElementById("numero1").value);
+            let numero2 = parseFloat(document.getElementById("numero2").value);
+            parseFloat(document.getElementById("resultado").innerHTML = numero1 + numero2);
+        }
+
+        function Restar() {
+            let numero1 = parseFloat(document.getElementById("numero1").value);
+            let numero2 = parseFloat(document.getElementById("numero2").value);
+            parseFloat(document.getElementById("resultado").innerHTML = numero1 - numero2);
+        }
+
+        function Multiplicar() {
+            let numero1 = parseFloat(document.getElementById("numero1").value);
+            let numero2 = parseFloat(document.getElementById("numero2").value);
+            parseFloat(document.getElementById("resultado").innerHTML = numero1 * numero2);
+        }
+
+        function Dividir() {
+            let numero1 = parseFloat(document.getElementById("numero1").value);
+            let numero2 = parseFloat(document.getElementById("numero2").value);
+            parseFloat(document.getElementById("resultado").innerHTML = numero1 / numero2);
+            if(numero2 == 0){
+                document.getElementById("resultado").innerHTML = "Error. No se puede dividir por cero"
+            }
+        }*/
+       /*Ejercicio 6
+        function agregar(){
+            let agregada = document.getElementById("Agregar").value;
+            let lista = document.getElementById("lista");
+            let nuevaTarea = document.createElement("li");
+            nuevaTarea.textContent = `La tarea añadida ha sido ${agregada}`;
+            lista.appendChild(nuevaTarea);
+            document.getElementById("Agregar").value = "";
+        }*/
+       /*Ejercicio 8
+        let rojo = document.getElementById("Rojo");
+        let azul = document.getElementById("Azul");
+        let verde = document.getElementById("Verde");
+
+        function Rojo(){
+            document.body.style.backgroundColor = 'Red';
+        }
+        function Azul(){
+            document.body.style.backgroundColor = 'Blue';
+        }
+        function Verde(){
+            document.body.style.backgroundColor = 'Green';
+        }
+        function Original(){
+            document.body.style.backgroundColor = 'White';
+        }*/
+        /*Ejercicio 9
+        function myFunc()  {
+            let FechayHora = new Date();
+            let hora = FechayHora.getHours();
+            let minutos = FechayHora.getMinutes().toString().padStart(2, '0');
+            let segundos = FechayHora.getSeconds();
+            let dia = FechayHora.getDate();
+            let mes = (FechayHora.getMonth() + 1).toString().padStart(2, '0');
+            let anio = FechayHora.getFullYear();
+            let MostrarFechayHora = "Hora: " + hora+":"+minutos+":"+segundos + " | Fecha: "+ dia+"/"+mes+"/"+anio
+            document.getElementById("fecha").innerHTML = MostrarFechayHora;   
+        }
+            setInterval(myFunc, 1000);*/
+
+        /*Ejercicio 12
+        function conversión(){
+            let grados = document.getElementById("grados").value;
+            grados = (1.8 * grados) + 32;
+            parseFloat(document.getElementById("Fahrenheit").innerHTML = `Los grados Fahrenheit son: ${grados}`)
+        }*/
+
+        /*Ejercicio 14
+        function tirarDado(){
+            let randomNumber=(Math.trunc((Math.random()* 10) + 1))
+            document.getElementById("resultado").innerHTML = `🎲 Has sacado un ${randomNumber}.`;
+        }*/
+    </script>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            gap: 10px; /* Espacio entre campos */
+        }
+
+        label {
+            font-weight: bold;
+        }
+        input, textarea, select {
+            padding: 5px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!--Ejercicio 4
+    <button onclick="Sumaruno()">Contar</button>
+    <p id="numero" >1</p>-->
+
+    <!--Ejercicio 5
+    <input type="number" id="numero1" value="0">
+    <input type="number" id="numero2" value="0">
+    <button onclick="Sumar()">Sumar</button>
+    <button onclick="Restar()">Restar</button>
+    <button onclick="Multiplicar()">Multiplicar</button>
+    <button onclick="Dividir()">Dividir</button>
+    <p id="resultado"></p>-->
+
+    <!--Ejercicio 6
+    <input type="text" id="Agregar">
+    <button onclick="agregar()">Agregar</button>
+    <ul id="lista"></ul>-->
+
+    <!--Ejercicio 7
+    <p>Tabla de multiplicar del número que el usuario ha pedido</p>
+    <div id="Tabla"></div>-->
+
+    <!--Ejercicio 8
+    <button onclick="Rojo()" id="Rojo">Rojo</button>
+    <button onclick="Azul()" id="Azul">Azul</button>
+    <button onclick="Verde()" id="Verde">Verde</button>
+    <button onclick="Original()" id="Original">Original</button>-->
+
+    <!--Ejercicio 9
+    <div id="fecha"></div>-->
+
+    <!--Ejercicio 10
+    <form id="miFormulario">
+        <label for="name">
+            Nombre:<input type="text" id="name" placeholder="Introduce tu nombre">
+        </label>
+        <label for="email">
+            Email:<input type="text" id="email" placeholder="Introduce tu email">
+        </label>
+        <label for="message">
+            Mensaje:<textarea id="message" placeholder="Pon un mensaje"></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+    </form>-->
+
+    <!--Ejercicio 11
+    <div id="numero"></div>-->
+
+    <!--Ejercicio 12
+    Celsius a Fahrenheit <input type="number" id="grados">
+    <button type="button" onclick="conversión()">Mostrar conversión</button>
+    <p id="Fahrenheit"></p>-->
+
+    <!--
+    <div id="contador"></div>
+    <p id="listo"></p>-->
+
+    <!--Ejercicio 14
+    <button onclick="tirarDado()">Dado</button>
+    <p id="resultado"></p>-->
+
+    <!--Ejercicio 15
+    <p id="palabra"></p>-->
+    <!--Ejercicio 16
+    <p id="numeroMasGrande"></p>-->
+
+    <!--Ejercicio 17
+    <p id="notaMedia"></p>-->
+
+    <!--Ejercicio 18
+    <div>
+        <ul id="Libros"></ul>
+        Agregar libro <input type="text" id="LibroAgregado">
+        <button onclick="agregarLibro()">Agregar libro</button>
+    </diV>-->
+
+    <!--Ejercicio 19
+    <p id="parrafo">Mi parrafo</p>
+    <button onclick="mostrarocultar()">Mostrar/Ocultar</button>-->
+
+    <script>        
+        /*Ejercicio 7
+        let numero = parseInt(prompt("Introduce un número:"));
+        let tabla = document.getElementById("Tabla");
+        
+        for(let i = 1; i<=10; i++){
+            let resultado = numero * i;
+            console.log(numero + " x " + i +" = " + resultado);
+
+            let linea = document.createElement("p");
+            linea.textContent = `${numero} x ${i} = ${resultado}`;
+            tabla.appendChild(linea);
+        }*/
+
+        /*Ejercicio 10
+        document.getElementById('miFormulario').addEventListener("submit", function(e){
+            e.preventDefault();
+            nombre = document.getElementById("name").value;
+            email = document.getElementById("email").value;
+            mensaje = document.getElementById("message").value;
+
+            if(nombre == 0 || /^\s+$/.test(nombre)){
+                alert("El nombre no puede estar vacío.");
+                return
+            }
+
+            if(email == 0 || /^\s+$/.test(email)){
+                alert("El email no puede estar vacío.");
+                return
+            }
+
+            if(!email.includes("@")){
+                alert("El email no es válido");
+                return
+            }
+
+            if(mensaje == 0 || /^\s+$/.test(mensaje)){
+                alert("El mensaje no puede estar vacío.")
+                return
+            }
+
+            if(!validarEmail(email)){
+                alert("El email no es válido.")
+                return
+            }
+
+            alert("Formulario enviado correctamente");
+        });
+        
+        function validarEmail(email){
+            let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        */
+       /*Ejercicio 11
+            let numero = parseFloat(prompt("Introduce un número:"));
+            let par = document.getElementById("numero");
+            let mostrar = document.createElement("p");
+            
+            if(numero % 2 == 0){
+                mostrar.textContent = `El numero es par`;
+            }else {
+                mostrar.textContent = `El numero es impar`;
+            }
+            par.appendChild(mostrar);*/
+
+
+            /*Ejercicio 13
+            let numero = parseInt(prompt("Introduce un número:"))
+            let contador = document.getElementById("contador");
+            
+            Versión ChatGPT Cuenta atras
+            let intervalo = setInterval(()=>{
+                if(numero > 0){
+                    let mostrar = document.createElement("p");
+                    mostrar.textContent = `${numero}`;
+                    contador.appendChild(mostrar);
+                }
+                if(numero == 0){
+                    document.getElementById("listo").innerHTML = "Listo";
+                    clearInterval(intervalo);
+                }
+                numero--;
+            }, 1000);
+
+            Mi versión Contador
+            for(let i = 0; i <= numero; numero--){
+                let mostrar = document.createElement("p");
+                mostrar.textContent = `${numero}`;
+                contador.appendChild(mostrar);
+                if(numero == 0){
+                    document.getElementById("listo").innerHTML = "Listo";
+                }
+            }*/
+            /*
+            let palabraSecreta = "SlyCooper";
+            let palabraUsuario = prompt("Intenta adivinar la palabra secreta:");
+            Version con if
+            if(palabraUsuario == palabraSecreta){
+                document.getElementById("palabra").innerHTML = "Correcto";
+            }else {
+                document.getElementById("palabra").innerHTML = "Incorrecto";
+            }
+            Version con while
+            while(palabraUsuario != palabraSecreta){
+                palabraUsuario = prompt("Incorrecto. Vuelve a adivinar la palabra secreta:");
+            }
+                document.getElementById("palabra").innerHTML = "Correcto";
+            */
+            /*Ejercicio 16
+            let numero1 = parseFloat(prompt("Introduce el primer número:"));
+            let numero2 = parseFloat(prompt("Introduce el segundo número:"));
+            let numero3 = parseFloat(prompt("Introduce el tercer número:"));
+            if(numero1 > numero2 && numero1 > numero3){
+                document.getElementById("numeroMasGrande").innerHTML = `El ${numero1} es el más grande`;
+            }else if(numero2 > numero3){
+                document.getElementById("numeroMasGrande").innerHTML = `El ${numero2} es el más grande`;
+            }else {
+                document.getElementById("numeroMasGrande").innerHTML = `El ${numero3} es el más grande`;
+            }*/
+
+            /*Ejercicio 17
+            let nota1 = parseFloat(prompt("Introduce la primera nota (1-10):"));
+            let nota2 = parseFloat(prompt("Introduce la segunda nota (1-10):"));
+            let nota3 = parseFloat(prompt("Introduce la tercera nota (1-10):"));
+            let media = (nota1 + nota2 + nota3)/3;
+            if(media >= 5){
+                document.getElementById("notaMedia").innerHTML = `La nota medía es ${media} ha aprobado.`
+            }else {
+                document.getElementById("notaMedia").innerHTML = `La nota medía es ${media} ha suspendido.`
+            }*/
+
+            /*Ejercicio 18
+            let libros = ["Caballo de Troya", "Geronimo Stilton", "Viaje al centro", "Soy Leyenda", "El Fin"]
+            for(libro of libros){
+                let Libros = document.getElementById("Libros");
+                let li = document.createElement("li");
+                li.textContent = libro;
+                Libros.appendChild(li);
+            }
+            function agregarLibro(){
+                let nuevoLibro = document.getElementById("LibroAgregado").value;
+                if(nuevoLibro.trim() !== ""){
+                    libros.push(nuevoLibro);
+                    let lista = document.getElementById("Libros");
+                    let li = document.createElement("li");
+                    li.textContent = nuevoLibro;
+                    lista.appendChild(li);
+                    document.getElementById("LibroAgregado").value = "";
+                }
+            }*/
+            /*Ejercicio 19
+            function mostrarocultar(){
+                let parrafo = document.getElementById('parrafo');
+                if (parrafo.style.display === 'none') {
+                    parrafo.style.display = 'block';
+                } else {
+                    parrafo.style.display = 'none';
+                }
+            }*/
+
+        </script>
+</body>
+</html>

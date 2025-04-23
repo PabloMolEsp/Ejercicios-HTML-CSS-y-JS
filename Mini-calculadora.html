@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini calculadora</title>
+    <style>
+        body{
+            width: 400px; 
+            margin: auto;
+            margin-top: 1%;
+        }
+        fieldset {
+            width: 51%;
+        }
+        div{
+            margin: 3%;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <div>
+            <input type="text" id="numero">
+            <button type="button" onclick="CE()">CE</button>
+            <button type="button" onclick="dividir()" >/</button>
+        </div>
+        <div>
+            <button type="button" onclick="siete()" >7</button>
+            <button type="button" onclick="ocho()" >8</button>
+            <button type="button" onclick="nueve()" >9</button>
+            <button type="button" onclick="multiplicar()" >x</button>
+        </div>
+        <div>
+            <button type="button" onclick="cuatro()" >4</button>
+            <button type="button" onclick="cinco()" >5</button>
+            <button type="button" onclick="seis()" >6</button>
+            <button type="button" onclick="restar()" >-</button>
+        </div>
+        <div>
+            <button type="button" onclick="uno()" >1</button>
+            <button type="button" onclick="dos()" >2</button>
+            <button type="button" onclick="tres()" >3</button>
+            <button type="button" onclick="sumar()" >+</button>
+        </div>
+        <div>
+            <button type="button" onclick="posneg()">+/-</button>
+            <button type="button" onclick="cero()" >0</button>
+            <button type="button" onclick="punto()" >.</button>
+            <button type="button" onclick="igual()" >=</button>
+        </div>
+    </fieldset>
+
+    <script>
+        let pantalla = document.getElementById('numero'); // Identificamos el id del input
+        let operacion = null, operador1 = 0, operador2 = 0, resultado;
+        pantalla.value = 0; //Ponemos el input = a 0 para que se muestre nada más veamos la calculadora
+
+        function cero(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 0 y si no vale 0 le decimos que añade el 0 al número que este puesto.
+                pantalla.value = 0;
+            }else {
+                pantalla.value += 0;
+            }
+        }
+
+        function uno(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 1 y si no vale 0 le decimos que añade el 1 al número que este puesto.
+                pantalla.value = 1;
+            }else {
+                pantalla.value += 1;
+            }
+        }
+        function dos(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 2 y si no vale 0 le decimos que añade el 2 al número que este puesto.
+                pantalla.value = 2;
+            }else {
+                pantalla.value += 2;
+            } 
+        }
+        function tres(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 3 y si no vale 0 le decimos que añade el 3 al número que este puesto.
+                pantalla.value = 3;
+            }else {
+                pantalla.value += 3;
+            } 
+        }
+        function cuatro(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 4 y si no vale 0 le decimos que añade el 4 al número que este puesto.
+                pantalla.value = 4;
+            }else {
+                pantalla.value += 4;
+            } 
+        }
+        function cinco(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 5 y si no vale 0 le decimos que añade el 5 al número que este puesto.
+                pantalla.value = 5;
+            }else {
+                pantalla.value += 5;
+            } 
+        }
+        function seis(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 6 y si no vale 0 le decimos que añade el 6 al número que este puesto.
+                pantalla.value = 6;
+            }else {
+                pantalla.value += 6;
+            } 
+        }
+        function siete(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 7 y si no vale 0 le decimos que añade el 7 al número que este puesto.
+                pantalla.value = 7;
+            }else {
+                pantalla.value += 7;
+            } 
+        }
+        function ocho(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 8 y si no vale 0 le decimos que añade el 8 al número que este puesto.
+                pantalla.value = 8;
+            }else {
+                pantalla.value += 8;
+            } 
+        }
+        function nueve(){
+            if(pantalla.value === '0') {//Si el valor de pantalla vale 0 lo ponemos a 9 y si no vale 0 le decimos que añade el 9 al número que este puesto.
+                pantalla.value = 9;
+            }else {
+                pantalla.value += 9;
+            } 
+        }
+
+        function punto(){
+            //Si el valor de pantalla vale 0 lo ponemos a , y si no vale 0 le decimos que añade el , al número que este puesto.
+            if(!pantalla.value.includes('.')){
+                pantalla.value += '.';
+            }
+        }
+
+        function CE(){
+            pantalla.value = 0;
+        }
+
+        function sumar(){
+            operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton suma, le damos a operador1 todo el número almacenado en pantalla 
+            pantalla.value = 0;//Cuando se pulse el boton suma, se pondra la variable pantalla a 0 y se vera el 0.
+            operacion = 'sumar';
+//Igualamos operación a suma para decirle que cuando se pulse el boton de suma operación es igual a suma y en el if de la función igual le decimos que 
+//si operación vale suma que lo sume
+        }
+
+        function restar(){
+            operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
+            pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
+            operacion = 'restar';
+//Igualamos operación a restar para decirle que cuando se pulse el boton de resta operación es igual a resta y en el if de la función igual le decimos que 
+//si operación vale resta que lo reste
+        }
+
+        function multiplicar(){
+            operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
+            pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
+            operacion = 'multiplicar';
+//Igualamos operación a multiplicar para decirle que cuando se pulse el boton de multiplicar operación es igual a multiplicar y en el if de la función igual
+//le decimos que si operación vale multiplicar que lo multiplique.
+        }
+
+        function dividir(){
+            operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
+            pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
+            operacion = 'dividir';
+//Igualamos operación a dividir para decirle que cuando se pulse el boton de dividir operación es igual a dividir y en el if de la función igual le decimos 
+//que si operación vale dividir que lo dividir.
+        }
+
+        function posneg(){
+            if(pantalla.value !== '0'){
+                if(pantalla.value.startsWith('-')){
+                    pantalla.value = pantalla.value.substring(1);
+                }else {
+                    pantalla.value = '-' + pantalla.value;
+                }
+            }else{
+                pantalla.value = '-' + pantalla.value;
+            }
+        }
+        function igual(){
+            operador2 = parseFloat(pantalla.value);//Guardamos el segundo operador en la variable operador2
+                if(operacion === 'sumar'){
+                    resultado = operador1 + operador2;
+                }else if(operacion === 'restar'){
+                    resultado = operador1 - operador2;
+                }else if(operacion === 'multiplicar'){
+                    resultado = operador1 * operador2;
+                }else if(operacion === 'dividir'){
+                    if(parseFloat(operador2) === 0) {
+                        resultado = 'Error no se puede dividir por 0';
+                    }else{
+                        resultado = operador1 / operador2;
+                    }                 
+                }
+            pantalla.value = resultado
+        }
+
+        
+
+    </script>
+</body>
+</html>

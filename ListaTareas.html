@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+</head>
+<body>
+    
+    <div>
+        <input type="text" id="entrada">
+        <button onclick="agregar()">Agregar tarea</button>
+        <ul id="lista"></ul>
+    </div>
+
+    <script>
+        function agregar(){
+            let agregada = document.getElementById("entrada").value;
+            let lista = document.getElementById("lista");
+            let elemento = document.createElement("li");
+            elemento.textContent = `La tarea agregada ha sido ${agregada}`;
+            let boton = document.createElement("button");
+            boton.textContent = "Eliminar tarea";
+            lista.appendChild(elemento);
+            lista.appendChild(boton);
+        }
+
+
+    </script>
+</body>
+</html>

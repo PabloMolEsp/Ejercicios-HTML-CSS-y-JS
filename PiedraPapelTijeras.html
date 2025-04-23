@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piedra, papel o tijeras</title>
+    <style>
+      /* Estilo general para los botones */
+      .btn {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Botón primario */
+      .btn.primario {
+        background-color: #007bff;
+      }
+
+      .btn.primario:hover {
+        background-color: #0056b3;
+      }
+
+      /* Botón secundario */
+      .btn.secundario {
+        background-color: #6c757d;
+      }
+
+      .btn.secundario:hover {
+        background-color: #565e64;
+      }
+
+      /* Botón de peligro */
+      .btn.peligro {
+        background-color: #dc3545;
+      }
+
+      .btn.peligro:hover {
+        background-color: #a71d2a;
+      }
+
+      /* Estilo para el párrafo */
+      .texto {
+        font-size: 18px;
+        color: #333;
+        background-color: #f2f2f2;
+        padding: 15px;
+        border-radius: 8px;
+        max-width: 400px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn primario" type="button" onclick="Piedra()" id="piedra">Piedra</button>
+    <button class="btn secundario" type="button" onclick="Papel()" id="papel">Papel</button>
+    <button class="btn primario" type="button" onclick="Tijeras()" id="tijeras">Tijeras</button>
+    <p class="texto" id="resultado"></p>
+
+    <script>
+      //Identificamos los botones en el JS
+      let piedra = document.getElementById("piedra");
+      let papel = document.getElementById("papel");
+      let tijeras = document.getElementById("tijeras");
+      //Creamos un array con las opciones de la máquina
+      let eleccion = ["Piedra", "Papel", "Tijeras"];
+      //Creamos una variable donde la igualamos a un número aleatorio del 1 al 3
+      let random = Math.trunc(Math.random() * 3);
+
+      function Piedra() {
+        if (eleccion[random] === "Piedra") {
+          document.getElementById("resultado").innerHTML = "Ha sido empate";
+          console.log("Ha sido empate");
+        } else if (eleccion[random] === "Papel") {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado la maquina";
+          console.log("Ha ganado la maquina");
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado el usuario";
+          console.log("Ha ganado el usuario");
+        }
+      }
+
+      function Papel() {
+        if (eleccion[random] === "Papel") {
+          document.getElementById("resultado").innerHTML = "Ha sido empate";
+          console.log("Ha sido empate");
+        } else if (eleccion[random] === "Tijeras") {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado la maquina";
+          console.log("Ha ganado la maquina");
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado el usuario";
+          console.log("Ha ganado el usuario");
+        }
+      }
+
+      function Tijeras() {
+        if (eleccion[random] === "Tijeras") {
+          document.getElementById("resultado").innerHTML = "Ha sido empate";
+          console.log("Ha sido empate");
+        } else if (eleccion[random] === "Piedra") {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado la maquina";
+          console.log("Ha ganado la maquina");
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "Ha ganado el usuario";
+          console.log("Ha ganado el usuario");
+        }
+      }
+    </script>
+  </body>
+</html>
