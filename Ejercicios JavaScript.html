@@ -6,50 +6,55 @@
     <title>Document</title>
     <script>
         /*EJERCICIO 1
+        Programa que pide dos números y los suma
         let numero1 = parseInt(prompt("Introduce el primer número:"))
         let numero2 = parseInt(prompt("Introduce el segundo número:"))
         let suma = numero1 + numero2
         alert(`El resultado de la suma es ${suma}`)*/
         /*EJERCICIO 2
-        let randomNumber=(Math.trunc((Math.random()*10) + 1))
+        Pedimos un número al usuario número entre 1 y 10 y seguimos pidiendole el número hasta que lo acierte
+        let randomNumber=(Math.trunc((Math.random()*10) + 1))Variable donde guardamos el número random
         alert(randomNumber)
-        let adivina = parseInt(prompt("Introduce un número para adivinar el número aleatorio (1 - 10):"))
-            while(randomNumber != adivina){
+        let adivina = parseInt(prompt("Introduce un número para adivinar el número aleatorio (1 - 10):"))Pedimos un número al usuario
+            while(randomNumber != adivina){ Si el número que pone no es el número aleatorio, le volvemos a pedir el número
                 alert("No has acertado el número.")
                 adivina = parseInt(prompt("Introduce un número para adivinar el número aleatorio (1 - 10):"))
             }
             alert("Enhorabuena has acertado el número.")*/
         /*Ejercicio 3
-        let edad = parseInt(prompt("¿Cuántos años tienes?"));
-        if(edad >= 18){
-            alert("Eres mayor de edad");
+        Pedimos una edad y si es mayor de edad le decimos que es mayor de edad si no lo es le decimos que no es mayor de edad.
+        let edad = parseInt(prompt("¿Cuántos años tienes?")); Pedimos la edad
+        if(edad >= 18){ condición para saber si es mayor de edad
+            alert("Eres mayor de edad"); Mostramos si se cumple
         }else {
-            alert("Eres menor de edad")
+            alert("Eres menor de edad"); Mostramos si se cumple
         }*/
         /*Ejercicio 4
-        function Sumaruno(){
-            document.getElementById("numero").textContent++;
+        Boton que cuando se pulse sume uno.
+        function Sumaruno(){ Declaramos la función
+            document.getElementById("numero").textContent++; Identificamos el párrafo y le sumamos uno con la propiedad textContent
         }*/
         /*Ejercicio 5
-        function Sumar() {
+        Con los inputs que hay en el documento HTML, creamos en cada boton una función para cada operación
+        function Sumar(){ En la función sumar identificamos los valores de los inputs y en el parrafo con id resultado mostramos el resultado de la operación
             let numero1 = parseFloat(document.getElementById("numero1").value);
             let numero2 = parseFloat(document.getElementById("numero2").value);
             parseFloat(document.getElementById("resultado").innerHTML = numero1 + numero2);
         }
 
-        function Restar() {
+        function Restar(){ En la función restar identificamos los valores de los inputs y en el parrafo con id resultado mostramos el resultado de la operación
             let numero1 = parseFloat(document.getElementById("numero1").value);
             let numero2 = parseFloat(document.getElementById("numero2").value);
             parseFloat(document.getElementById("resultado").innerHTML = numero1 - numero2);
         }
 
-        function Multiplicar() {
+        function Multiplicar(){ En la función Multiplicar identificamos los valores de los inputs y en el parrafo con id resultado mostramos el resultado de la operación
             let numero1 = parseFloat(document.getElementById("numero1").value);
             let numero2 = parseFloat(document.getElementById("numero2").value);
             parseFloat(document.getElementById("resultado").innerHTML = numero1 * numero2);
         }
 
-        function Dividir() {
+        function Dividir(){ En la función dividir identificamos los valores de los inputs y en el parrafo con id resultado mostramos el resultado de la operación
             let numero1 = parseFloat(document.getElementById("numero1").value);
             let numero2 = parseFloat(document.getElementById("numero2").value);
             parseFloat(document.getElementById("resultado").innerHTML = numero1 / numero2);
@@ -58,13 +63,14 @@
             }
         }*/
        /*Ejercicio 6
-        function agregar(){
-            let agregada = document.getElementById("Agregar").value;
-            let lista = document.getElementById("lista");
-            let nuevaTarea = document.createElement("li");
-            nuevaTarea.textContent = `La tarea añadida ha sido ${agregada}`;
-            lista.appendChild(nuevaTarea);
-            document.getElementById("Agregar").value = "";
+       input que reciba una tarea y se añada al documento
+        function agregar(){ Creamos la función relacionada con el boton agregar
+            let agregada = document.getElementById("Agregar").value; Identificamos el valor de lo que ponga el usuario en el input
+            let lista = document.getElementById("lista"); Creamos una variable para identificar nuestra lista que esta en el HTML en este caso un <ul>
+            let nuevaTarea = document.createElement("li"); Creamos la variable nuevaTarea y con esta creamos un nuevo elemento que se mostrara en el documento
+            nuevaTarea.textContent = `La tarea añadida ha sido ${agregada}`; Le decimos lo que queremos que se muestre en el elemento creado un <li>
+            lista.appendChild(nuevaTarea);Con appendchild añadimos el elemento li creado en el js a elemento ul creado en el HTML
+            document.getElementById("Agregar").value = ""; Volvemos a dejar el input vacío una vez pulsado el botón por si quiere volver a poner otra tarea
         }*/
        /*Ejercicio 8
         let rojo = document.getElementById("Rojo");

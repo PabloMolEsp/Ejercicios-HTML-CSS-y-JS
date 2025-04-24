@@ -129,69 +129,68 @@
         }
 
         function punto(){
-            //Si el valor de pantalla vale 0 lo ponemos a , y si no vale 0 le decimos que añade el , al número que este puesto.
-            if(!pantalla.value.includes('.')){
+            if(!pantalla.value.includes('.')){//Si el valor de la pantalla no contiene un punto le decimos que añade el punto que ponga
                 pantalla.value += '.';
             }
         }
 
-        function CE(){
+        function CE(){//Cuando se pulse en el boton CE ponemos el valor de la pantalla a 0.
             pantalla.value = 0;
         }
 
         function sumar(){
             operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton suma, le damos a operador1 todo el número almacenado en pantalla 
             pantalla.value = 0;//Cuando se pulse el boton suma, se pondra la variable pantalla a 0 y se vera el 0.
-            operacion = 'sumar';
-//Igualamos operación a suma para decirle que cuando se pulse el boton de suma operación es igual a suma y en el if de la función igual le decimos que 
-//si operación vale suma que lo sume
+            operacion = 'sumar';//Igualamos operación a suma para decirle que cuando se pulse el boton de suma operación es igual a suma y en el if de la 
+            //función igual le decimos que si operación vale suma que lo sume.
         }
 
         function restar(){
             operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
             pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
-            operacion = 'restar';
-//Igualamos operación a restar para decirle que cuando se pulse el boton de resta operación es igual a resta y en el if de la función igual le decimos que 
-//si operación vale resta que lo reste
+            operacion = 'restar';//Igualamos operación a restar para decirle que cuando se pulse el boton de resta operación es igual a resta y en el if de 
+            //la función igual le decimos que si operación vale resta que lo reste
         }
 
         function multiplicar(){
             operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
             pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
-            operacion = 'multiplicar';
-//Igualamos operación a multiplicar para decirle que cuando se pulse el boton de multiplicar operación es igual a multiplicar y en el if de la función igual
-//le decimos que si operación vale multiplicar que lo multiplique.
+            operacion = 'multiplicar';//Igualamos operación a multiplicar para decirle que cuando se pulse el boton de multiplicar operación es igual a 
+            // multiplicar y en el if de la función igual le decimos que si operación vale multiplicar que lo multiplique.
         }
 
         function dividir(){
             operador1 = parseFloat(pantalla.value);//Cuando pulsemos el boton resta, le damos a operador1 todo el número almacenado en pantalla 
             pantalla.value = 0;//Cuando se pulse el boton resta, se pondra la variable pantalla a 0 y se vera el 0.
-            operacion = 'dividir';
-//Igualamos operación a dividir para decirle que cuando se pulse el boton de dividir operación es igual a dividir y en el if de la función igual le decimos 
-//que si operación vale dividir que lo dividir.
+            operacion = 'dividir';//Igualamos operación a dividir para decirle que cuando se pulse el boton de dividir operación es igual a dividir y en el 
+            // if de la función igual le decimos que si operación vale dividir que lo dividir.
         }
 
         function posneg(){
-            if(pantalla.value !== '0'){
-                if(pantalla.value.startsWith('-')){
-                    pantalla.value = pantalla.value.substring(1);
-                }else {
-                    pantalla.value = '-' + pantalla.value;
+            if(pantalla.value !== '0'){//Si pantalla no vale 0
+                if(pantalla.value.startsWith('-')){//Si el valor de la pantalla no empieza con guión(-)
+                    pantalla.value = pantalla.value.substring(1);//Elimina el primer cáracter que es el guión. Ya que con substring cogemos la cadena a 
+                    //partir del segundo caracter de la cadena y como el método substring empieza por cero ponemos el 1 para que no empiece a coger 
+                    //la cadena desde el segundo cáracter
+                }else{
+                    pantalla.value = '-' + pantalla.value;//Si no lo añade
                 }
             }else{
-                pantalla.value = '-' + pantalla.value;
+                pantalla.value = '-' + pantalla.value;//Si no empieza por cero añade el -
             }
         }
         function igual(){
             operador2 = parseFloat(pantalla.value);//Guardamos el segundo operador en la variable operador2
-                if(operacion === 'sumar'){
-                    resultado = operador1 + operador2;
+                if(operacion === 'sumar'){//Si operación vale sumar, que es lo que valdra si el usuario pulsa en el boton sumar, ya que en en la función 
+                //sumar hemos igualado operación a sumar hara este if y sumara el operador1 y operador2
+                    resultado = operador1 + operador2;//En la variable resultado guardamos el resultado de sumar el operador1 y operador2
                 }else if(operacion === 'restar'){
                     resultado = operador1 - operador2;
                 }else if(operacion === 'multiplicar'){
                     resultado = operador1 * operador2;
                 }else if(operacion === 'dividir'){
-                    if(parseFloat(operador2) === 0) {
+                    if(parseFloat(operador2) === 0) {//Si el segundo operador vale 0 dentro cuando se va a dividir, le pasamos a pantalla que es un Error y
+                        //no se puede dividir por cero.
                         resultado = 'Error no se puede dividir por 0';
                     }else{
                         resultado = operador1 / operador2;
@@ -199,8 +198,6 @@
                 }
             pantalla.value = resultado
         }
-
-        
 
     </script>
 </body>
