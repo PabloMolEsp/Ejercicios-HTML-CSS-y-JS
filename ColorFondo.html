@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color de fondo Aleatorio</title>
+</head>
+<body>
+    <button onclick="cambiarColor()">Color aleatorio</button>
+    <p id="hexadecimal"></p>
+    <button onclick="copiarCodigo()">Copiar código</button>
+    <script>
+        let Colores = ["#641e16","#78281f","#512e5f","#4a235a","#154360","#1b4f72","#0e6251","#0b5345","#0b5345","#186a3b","#7d6608","#7e5109","#784212",
+        "#6e2c00","#7b7d7d","#626567","#4d5656","#424949","#1b2631","#17202a"];
+        let random;
+
+        function cambiarColor(){
+            random = (Math.trunc((Math.random() * 20)));
+            document.body.style.backgroundColor=Colores[random];
+            let hexadecimal = document.getElementById("hexadecimal").innerHTML = `El color hexadecimal es ${Colores[random]}`;      
+        }
+
+        function copiarCodigo(){
+            navigator.clipboard.writeText(Colores[random]);
+        }
+    </script>
+</body>
+</html>

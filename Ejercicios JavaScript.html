@@ -73,10 +73,14 @@
             document.getElementById("Agregar").value = ""; Volvemos a dejar el input vacío una vez pulsado el botón por si quiere volver a poner otra tarea
         }*/
        /*Ejercicio 8
+        Ponemos tres botones y cuando se pulse en uno de los botones cambia el color del documento al del boton seleccionado
+        Primero identificamos los botones en el JS
         let rojo = document.getElementById("Rojo");
         let azul = document.getElementById("Azul");
         let verde = document.getElementById("Verde");
 
+        Creamos las tres funciones correspondientes a los botones y con el método document.body.style.backgroundColor elegimos el color al que queremos que
+        se cambie cuando se pulse en el boton. La última función es para volver a dejar el documento a su color original de ahí el nombre de la función
         function Rojo(){
             document.body.style.backgroundColor = 'Red';
         }
@@ -90,29 +94,44 @@
             document.body.style.backgroundColor = 'White';
         }*/
         /*Ejercicio 9
-        function myFunc()  {
+        Programa en el que mostramos la fecha y la vamos actualizando cada segundo
+        function fechaHora()  {
+            Usamos el objeto Date para guadarlo en una variable y usarlo a partir de esa variable
             let FechayHora = new Date();
+            Creamos una variable y le decimos que guarde la hora con el metodo getHours del objeto Date y hacemos lo mismo con los minutos y segundos
             let hora = FechayHora.getHours();
             let minutos = FechayHora.getMinutes().toString().padStart(2, '0');
             let segundos = FechayHora.getSeconds();
+            Creamos una variable y le decimos que guarde la hora con el metodo getDate del objeto Date y hacemos lo mismo con los meses y años
             let dia = FechayHora.getDate();
             let mes = (FechayHora.getMonth() + 1).toString().padStart(2, '0');
             let anio = FechayHora.getFullYear();
+            En esta variable guardamos la hora seguido de la fecha
             let MostrarFechayHora = "Hora: " + hora+":"+minutos+":"+segundos + " | Fecha: "+ dia+"/"+mes+"/"+anio
+            Identificamos nuestro elemento p(parrafo) en el js y con el método innerHTML le ponemos lo que queremos que muestre en este caso la variable 
+            MostrarDechayHora que es una cadena en la que ponemos los textos de Hora y fecha seguido de las variables para mostrar dichos datos.
             document.getElementById("fecha").innerHTML = MostrarFechayHora;   
         }
-            setInterval(myFunc, 1000);*/
+            Con la función setInterval llamamos a la función y decimos que se repita cada segundo
+            setInterval(fechaHora, 1000);*/
 
         /*Ejercicio 12
+        Convertimos los grados que pone el usuario en un input a Fahrenheit
         function conversión(){
+            Identificamos el valor del input en el js
             let grados = document.getElementById("grados").value;
+            En la misma variable donde identificamos el valor del input hacemos la fórmula para pasar a Fahrenheit
             grados = (1.8 * grados) + 32;
+            Con innerHTML mostramos la conversión en un p(párrafo)
             parseFloat(document.getElementById("Fahrenheit").innerHTML = `Los grados Fahrenheit son: ${grados}`)
         }*/
 
         /*Ejercicio 14
+        función en el que al pulsar un botón se tire un dado y de el resultado de tirar el dado
         function tirarDado(){
-            let randomNumber=(Math.trunc((Math.random()* 10) + 1))
+            Variable donde guardamos un número aleatorio de l 1 al 5 
+            let randomNumber=(Math.trunc((Math.random()* 6) + 1))
+            le pasamos al p(párrafo) el resultado usando innerHTML.
             document.getElementById("resultado").innerHTML = `🎲 Has sacado un ${randomNumber}.`;
         }*/
     </script>
@@ -217,15 +236,24 @@
 
     <script>        
         /*Ejercicio 7
+        Pedimos un número al usuario y mostramos la tabla de multiplicar de dicho número
+        Pedimos el número al usuario e identificamos el elemento div al cual le vamos a pasar la tabla
         let numero = parseInt(prompt("Introduce un número:"));
         let tabla = document.getElementById("Tabla");
         
+        Un for para recorrer los números del 1 al 10
         for(let i = 1; i<=10; i++){
+            En resultado ponemos el número que ha puesto el usuario por la variable del for que se recorrera hasta 10 con esto conseguimos que se muñtiplique
+            los números del 1 al 10 y se guarden en la variable resultado
             let resultado = numero * i;
+            Mostramos el resultado poniendo primero el número que ha puesto el usuario seguido del producto después la variable del for y poniendo el igual al 
+            resultado, para que se muestre como una tabla de muñtiplicar normal
             console.log(numero + " x " + i +" = " + resultado);
-
+            Creamos una variable linea donde creamos a su vez un elemento p
             let linea = document.createElement("p");
+            Con textContent le decimos el contenido que queremos que haya en el elemento p creado previamente
             linea.textContent = `${numero} x ${i} = ${resultado}`;
+            Y con appendChild lo añadimos a la tabla donde teniamos el div pasadole como parametro la variable que creamos antes para crear el elemento p
             tabla.appendChild(linea);
         }*/
 

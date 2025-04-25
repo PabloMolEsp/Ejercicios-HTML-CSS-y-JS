@@ -72,6 +72,7 @@
       //Creamos una variable random donde la igualamos a un número aleatorio del 1 al 3
       let random = Math.trunc(Math.random() * 3);
 
+      console.log(eleccion[random])
       function Piedra() {//Si el usuario ha pulsado en el boton piedra llama a esta función
         if (eleccion[random] === "Piedra"){//Si la elección de la máquina es igual a piedra
           document.getElementById("resultado").innerHTML = "Ha sido empate";//Sacamos por pantalla que ha sido empate ya que han obtenido el mismo resultado

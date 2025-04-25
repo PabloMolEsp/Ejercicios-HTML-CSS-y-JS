@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora edad</title>
+  </head>
+  <body>
+    <input type="date" id="fecha" />
+    <p id="mostrarfecha"></p>
+
+    <script>
+      const inputFecha = document.getElementById("fecha");
+      const resultadoAnio = document.getElementById("mostrarfecha");
+
+      inputFecha.addEventListener("change", () => {
+        if (inputFecha.valueAsDate) {
+            let dia = inputFecha.valueAsDate.getDay();
+            let mes = inputFecha.valueAsDate.getMonth(); 
+            let anio = inputFecha.valueAsDate.getFullYear();
+            dia = 31 - dia;
+            mes = 12 - mes;
+            anio = 2025 - anio;
+            resultadoAnio.textContent = `Tienes ${anio-1} años ${mes} meses y ${dia} dias`;
+        } else {
+            resultadoAnio.textContent = "No hay fecha seleccionada.";
+        }
+      });
+    </script>
+  </body>
+</html>

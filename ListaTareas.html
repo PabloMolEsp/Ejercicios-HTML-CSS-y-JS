@@ -10,17 +10,24 @@
     <div>
         <input type="text" id="entrada">
         <button onclick="agregar()">Agregar tarea</button>
+        <ul id="lista-tareas"></ul>
         
     </div>
 
     <script>
         function agregar(){
-            let entrada = document.getElementById("entrada");    
+            let entrada = document.getElementById("entrada").value;
+            if(entrada.trim() === "") return;
+            let nuevaTarea = document.createElement('li');
+            nuevaTarea.innerHTML = `La tarea agregada ha sido: ${entrada} <button onclick="eliminar(this)">Eliminar</button>  
+            Marcar como completada <input type="checkbox">`;
+            document.getElementById("lista-tareas").appendChild(nuevaTarea);
+            document.getElementById("entrada").value = "";
         }
-        
 
-
-
+        function eliminar(boton){
+            boton.parentElement.remove();
+        }
     </script>
 </body>
 </html>
