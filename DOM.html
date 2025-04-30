@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        padding: 20px;
+      }
+
+      .main-div {
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #f5f5f5;
+      }
+
+      img {
+        max-width: 300px;
+        margin-top: 10px;
+      }
+
+      .old-div {
+        margin-top: 20px;
+        background-color: #e0e0e0;
+        padding: 10px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+
+      ul {
+        margin-top: 15px;
+      }
+
+      #dropzone {
+        border: 2px dashed #ccc;
+        padding: 10px;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      #draggable {
+        width: 100px;
+        height: 100px;
+        background-color: #ffcc00;
+        color: #ffffff;
+        padding: 10px;
+        cursor: move;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">ManipulanDOM</h1>
+    <div class="main-div">
+      Imagen de ejemplo: <br />
+      <img src="js.png" alt="Imagen original" />
+    </div>
+    <div class="old-div">Este div se eliminará</div>
+    <input type="text" id="filterInput" placeholder="Filtra items">
+    <ul class="list">
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Ruby</li>
+        <li>Java</li>
+        <li>PHP</li>
+    </ul>
+
+    <button>Presiona aquí</button>
+
+    <div>
+        <input type="text" id="itemInput" placeholder="Añade un item a la lista">
+        <button id="addButton">Añadir</button>
+        <ul id="dynamicList"></ul>
+    </div>
+
+    <div id="draggable" draggable="true">Arrástrame</div>
+    <div id="dropzone" dropzone="true">Zona para soltar</div>
+
+    <script>
+        //Identidicamos el titulo y lo mostramos en un console.log. Nos muestra la etiqueta h1 del HTML entera
+        let title = document.getElementById("title");
+        //console.log(title);
+
+        //El método querySelector nos devuelve el primer elemento del documento que coincida con el selector CSS especificado. Lo mostramos y no sale el 
+        //div entero
+        let mainDiv = document.querySelector(".main-div");
+        //console.log(mainDiv);
+
+        //El método querySelectorAll nos pilla todos los elementos del documento que coincidan con el selector CSS especificado en este caso ul.list>li
+        let listItem = document.querySelectorAll("ul.list > li");
+        //console.log(listItem);
+
+        //Con innerText le cambiamos el texto a un elemento en este caso al título
+        title.innerText = "Manipulando el DOM";
+        //Con innerHTML cambiamos lo que teníamos en title por una nueva etiqueta con un nuevo texto que hemos creado en el propio innerHTML
+        title.innerHTML = "<em>Nuevo</em>";
+
+        //Identificamos una imagen
+        let image = document.querySelector("img");
+        //Con el método setAttribute le decimos que es un atributo de tipo src y le pasamos el nombre de la imagen que queremos mostrar
+        image.setAttribute("src", "cebolla.jpg");
+        //con image.classList.add le añadimos a la imagen una clase que tenemos en nuestro css para que coja esos estilos
+        image.classList.add("img-fluid");
+        //Cogemos la variable mainDiv que creamos arriba para mostrar el div y le pasamos los métodos style y backgroundColor para cambiar el color del div
+        mainDiv.style.backgroundColor = "#ffcc00";
+
+        //Idenficamos el otro div que tenemos y con el método removeChild (EliminarHijo) lo eliminamos del documento HTML
+        let oldDiv = document.querySelector(".old-div");
+        document.body.removeChild(oldDiv);
+
+        //Creamos una nueva variable a la que le pasamos el método para crear un nuevo elemento HTML
+        let newDiv = document.createElement("div");
+        //Al nuevo elemento le decimos que va a tener el texto que le pongamos con el método innerText
+        newDiv.innerText = "Soy un nuevo div";
+        //Con el método appendChild lo añadimos el nuevo div que hemos creado al documento HTML
+        document.body.appendChild(newDiv);
+
+        //Creamos una variable boton e identificamos al unico boton que tenemos en el HTML
+        let button = document.querySelector("button");
+        //Ponemos el boton a la espera de un evento en este caso el evento click y creamos una función anónima con lo que queremos que haga o muestre.
+        //button.addEventListener("click", function(){
+        //   alert("Boton presionado");
+        //});
+
+        //Creamos una función de mostrar mensage
+        function showMessage(message){
+            alert(message);
+        }
+        //Llamamos al método addEventListener otra vez para poner a nuestro boton a la espera de un evento y le pasamos el evento y la función creada
+        //previamente con el parámetro bind y le pasamos null que es el objeto this de JavaScript con esto evitamos que se lance automaticamente y después 
+        //el mensaje que queremos pasar
+        button.addEventListener("click", showMessage.bind(null, "Aquí iria tu mensaje personalizado"));
+
+        //Identidicamos todos los elementos HTML en el JavaScript
+        let input = document.querySelector("#itemInput");
+        let addButton = document.querySelector("#addButton");
+        let list = document.querySelector("#dynamicList");
+
+        //Ponemos el boton a la escucha del evento click y creamos una función anónima la cual dice que cuando si el input no esta vacio o sea que se ha
+        //escrito texto en el campo de entrada que cree una nueva variable la cual le decimos que cree un elemento li, el cual tendra como valor de texto
+        //lo que se haya escrito en el campo de entrada y después a la lista que teniamos identificada que es un elemento ul en el HTML le pasamos como
+        //hijo el nuevo item que hemos creado el cual contine el li creado con lo que se ha escrito en el campo de entrada y limpiamos el valor del campo
+        //de entrada
+        addButton.addEventListener("click", function(){
+            if(input.value.trim() !== ""){
+                let newItem = document.createElement("li");
+                newItem.innerText = input.value;
+                list.appendChild(newItem);
+                input.value = "";
+            }
+        });
+
+        const filterInput = document.querySelector("#filterInput");
+        const itemList = document.querySelector(".list");
+
+        filterInput.addEventListener("keyup", function(){
+            const term = filterInput.value.toLowerCase();
+            const items = itemList.getElementsByTagName("li");
+            
+            Array.from(items).forEach(function(item){
+                if (item.textContent.toLowerCase().indexOf(term) !== -1){
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            })
+        })
+
+        const draggable = document.getElementById("draggable");
+        const dropzone = document.getElementById("dropzone");
+
+        draggable.addEventListener("dragstart", function(event){
+            setTimeout(() => { this.style.display = "none";}, 0);
+        })
+
+        dropzone.addEventListener("dragover", function(event){
+            event.preventDefault();
+        });
+ 
+        dropzone.addEventListener("drop", function(){
+            draggable.style.display = "block";
+            this.appendChild(draggable);
+        })
+    </script>
+  </body>
+</html>

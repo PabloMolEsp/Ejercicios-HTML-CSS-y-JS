@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario">
+        <p>¿Te sientes satisfecho con nuestro servicio?</p>
+            <select name="Satisfaccion">
+                <option>Si</option>
+                <option>No</option>
+            </select>
+        <p>¿Con qué frecuencia utilizas nuestro producto?</p>
+            <select name="Frecuencia">
+                <option>A diario</option>
+                <option>Varias veces a la semana</option>
+                <option>Una vez a la semana</option>
+                <option>Menos de una vez a la semana</option>   
+            </select>
+        <p>¿Cómo calificarías la calidad de nuestro producto?</p>
+            <select name="Calidad">
+                <option>Excelente</option>
+                <option>Buena</option>
+                <option>Regular</option>
+                <option>Mala</option>
+            </select>
+        <p>¿Nos recomendarías a un amigo o colega?</p>
+            <select name="Recomendacion">
+                <option>Si</option>
+                <option>No</option>
+            </select><br><br>
+        <button type="submit">Enviar respuestas</button>
+    </form>
+    <script>
+        //Identificamos el formulario
+        let formulario = document.getElementById('formulario');
+        //Lo ponemos a la espera con el addeventlistener y le pasamos el tipo de evento que queremos que se lance y creamos una función que tiene como 
+        //parametro event
+        formulario.addEventListener('submit', function(event){
+            //Para que no se recargue la página 
+            event.preventDefault();
+            //Creamos una variable para poder usar el objeto FormData 
+            let formData = new FormData(formulario);
+            //Recorremos el name que es lo que hay en el html y el valor que haya escogido el usuario usando formData.entries()
+            for (let [name, value] of formData.entries()) {
+                //Mostramos el nombre de la sección del formulario que ha respondido junto a la respuesta
+                console.log(name + ': ' + value);
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de monedas</title>
+</head>
+<body>
+    <input type="number" id="importe" placeholder="Importe"> Divisa
+    <select id="divisa">
+        <option value="Euros">Euros</option>
+        <option value="Libra Esterlina">Libra Esterlina</option>
+        <option value="Yen">Yen</option>
+        <option value="Dolar">Dólar</option>
+    </select>
+    Convertir a 
+    <select id="cambio">
+        <option>Dólar</option>
+        <option>Euros</option>
+        <option>Libra Esterlina</option>
+        <option>Yen</option>
+    </select><br><br>
+    <button onclick="Calculo()">Convertir</button>
+    <p id="mostrar"></p>
+    <script>
+        let mostrar = document.getElementById("mostrar");
+        function Calculo(){
+            indiceSeleccionado = divisa.selectedIndex;
+            opcionSeleccionadaD = divisa.options[indiceSeleccionado];
+            indiceSeleccionado = cambio.selectedIndex;
+            opcionSeleccionadaC = cambio.options[indiceSeleccionado];
+            if (opcionSeleccionadaD.value === "Euros" && opcionSeleccionadaC.value === "Dólar") {
+                EuroDolar = importe.value * 1.14;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(EuroDolar)} dólares`;
+            } else if (opcionSeleccionadaD.value === "Euros" && opcionSeleccionadaC.value === "Libra Esterlina") {
+                let EuroLibra = importe.value * 0.85;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(EuroLibra)}`;
+            } else if (opcionSeleccionadaD.value === "Euros" && opcionSeleccionadaC.value === "Yenes") {
+                let EuroYen = importe.value * 132.03;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(EuroYen)} yen`;
+            } else if (opcionSeleccionadaD.value === "Libra Esterlina" && opcionSeleccionadaC.value === "Dólar") {
+                let LibraDolar = importe.value * 1.34;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(LibraDolar)} dólares`;
+            } else if (opcionSeleccionadaD.value === "Libra Esterlina" && opcionSeleccionadaC.value === "Euros") {
+                let LibraEuro = importe.value * 1.18;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(LibraEuro)} libras`;
+            } else if (opcionSeleccionadaD.value === "Libra Esterlina" && opcionSeleccionadaC.value === "Yen") {
+                let LibraYen = importe.value * 191.22;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(LibraYen)} yen`;
+            } else if (opcionSeleccionadaD.value === "Yen" && opcionSeleccionadaC.value === "Dólar") {
+                let YenDolar = importe.value * 0.0070;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(YenDolar)} dólares`;
+            } else if (opcionSeleccionadaD.value === "Yen" && opcionSeleccionadaC.value === "Euros") {
+                let YenEuro = importe.value * 0.0062;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(YenEuro)} euros`;
+            } else if (opcionSeleccionadaD.value === "Yen" && opcionSeleccionadaC.value === "Libra Esterlina") { 
+                let YenLibra = importe.value * 0.0052;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(YenLibra)} libra`;
+            } else if (opcionSeleccionadaD.value === "Dólar" && opcionSeleccionadaC.value === "Euros") {
+                let DolarEuro = importe.value * 0.88;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(DolarEuro)} euros`;
+            } else if (opcionSeleccionadaD.value === "Dólar" && opcionSeleccionadaC.value === "Libra Esterlina") {
+                let DolarLibra = importe.value * 0.75;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(DolarLibra)} libras`;
+            } else if (opcionSeleccionadaD.value === "Dólar" && opcionSeleccionadaC.value === "Yen") {
+                let DolarYen = importe.value * 142.83;
+                mostrar.innerHTML = `El resultado de la conversión da ${Math.trunc(DolarYen)} yenes`;
+            }
+        }
+    </script>
+</body>
+</html>
