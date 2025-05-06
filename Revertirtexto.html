@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revertir texto</title>
+</head>
+<body>
+    <p id="mostrar"></p>
+    
+    <script>
+        let mostrar = document.getElementById("mostrar");
+        let frase = prompt("Escribe una frase:");
+
+        if(frase && frase.trim() !== ''){
+            let textoNormal = frase.toLowerCase()
+                                    .normalize("NFD")                 // Separar letras de sus acentos
+                                    .replace(/[\u0300-\u036f]/g, '')  // Eliminar los acentos
+                                    .replace(/[^a-z0-9]/g, '');
+            let invertido = textoNormal.split('').reverse().join('');
+            if (textoNormal === invertido) {
+                mostrar.innerHTML = `La frase ${frase} es un palíndromo`;
+            }else {
+                mostrar.innerHTML = `La frase era ${frase} si la invetimos es ${invertido}`;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+</head>
+<body>
+
+    <script>
+        let random = Math.trunc((Math.random() * 100) + 1);
+        console.log(random)
+        let numero = parseInt(prompt("Introduce un número del 1 al 100:"));
+        let intentos = 0;
+        while(numero !== random && intentos < 10) {
+            intentos++;   
+            if (numero < random) {
+                alert(`El número es bajo y llevas ${intentos} intentos.`);
+            } else {
+                alert(`El número es alto y llevas ${intentos} intentos.`);
+            }
+            if (intentos !== 10) {
+                numero = parseInt(prompt("Introduce un número del 1 al 100:"));
+            }
+            if(numero === random){
+                alert("Enhorabuena. Has acertado el número");
+            }
+        }
+        if(numero === random){
+                alert("Enhorabuena. Has acertado el número");
+            }
+
+    </script>
+</body>
+</html>
